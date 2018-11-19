@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>StudentViz</title>
+<link rel="shortcut icon" href="images/favicon_belle.ico" type="image/x-icon" />
+<meta name="description" content="StudentViz – A Multidimensional Visualization Tool for Students' Data">
+<meta name="keywords" content="student, visualization, decision, data, multidimensional">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ===== START CSS ===== -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css"/>
+<link href="css/parallax.css" rel="stylesheet" type="text/css"/>
+<!-- NO SCRIPT CSS -->
+<noscript>
+<link rel="stylesheet" type="text/css" href="css/nojs.css" />
+</noscript>
+<!-- ===== START JAVASCRIPT ===== -->
+<script type="text/javascript" src="javascripts/modernizr.custom.28468.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="javascripts/jquery.cslider.js"></script>
+<script type="text/javascript" src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/minified/jquery-ui.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery.cookie.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.js"></script>
+<script type="text/javascript" src="javascripts/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="javascripts/options.js"></script>
+<script type="text/javascript" src="d3/d3.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the controls package.
+      google.charts.load('current', {'packages':['corechart', 'controls']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawDashboard);
+
+      // Callback that creates and populates a data table,
+      // instantiates a dashboard, a range slider, category menu, and a pie chart,
+      // passes in the data and draws it.
+        function drawDashboard() {
+          //Fetch Our Table 
+          var queryString = encodeURIComponent('SELECT A1:D1219');
+          var query = new google.visualization.Query("https://docs.google.com/spreadsheets/d/1IyBFNaDr__c_YDNx2eudSI-s9M2wdW4R9upLbgFjTXQ/edit#gid=0&headers=4&tq" +queryString);
+          query.send(handleQueryResponse);
+          }
+        function handleQueryResponse(response){
+            if (response.isError()){
+                alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return; 
+            }
+      // Create our data table.
+        /**
+        var data = google.visualization.arrayToDataTable([
+          ['Name', 'Donuts eaten'],
+          ['Michael' , 5],
+          ['Elisa', 7],
+          ['Robert', 3],
+          ['John', 2],
+          ['Jessica', 6],
+          ['Aaron', 1],
+          ['Margareth', 8]
+        ]);
+        */
+
+        // Create a dashboard.
+            var data = response.getDataTable();
+            var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard_div'));
+
+        // Create a range slider, passing some options
+            var collegeNameSlider = new google.visualization.ControlWrapper({
+                'controlType': 'NumberRangeFilter',
+                'containerId': 'filter_div',
+                'options': {
+                    'filterColumnLabel': 'YEAR OF ADMISSION'
+                }
+            });
+        // Create a Drop down Menu for Category Filter, passing some options
+            var menuFilter = new google.visualization.ControlWrapper({
+                'controlType': 'CategoryFilter',
+                'containerId': 'menu_div',
+                'options': {
+                    'filterColumnLabel': 'DEPARTMENT',
+                    'values': ['Computer science', 'Accounting and taxation', 'Mathematics', 'Languages', 'Law', 'Mangement and administration', 'Political science and civics', 'Finance, banking, insurance', 'Statistics', 'Economics', 'Social work and counseling', 'Training for teachers with subject specialization', 'Travel, tourism and leisure', 'Psychology', 'National language', 'Religion', 'Social work and counseling'],
+                }
+            });
+
+        // Create a pie chart, passing some options
+            var pieChart = new google.visualization.ChartWrapper({
+                'chartType': 'PieChart',
+                'containerId': 'chart_div',
+                'options': {
+                    'width': 300,
+                    'height': 300,
+                    'pieSliceText': 'value',
+                    'legend': 'right'},
+                'view': {'columns': [0, 5]}
+                
+
+            });
+
+        // Establish dependencies, declaring that 'filter' drives 'pieChart',
+        // so that the pie chart will only display entries that are let through
+        // given the chosen slider range.
+            
+            dashboard.bind(collegeNameSlider, menuFilter, pieChart);
+
+        // Draw the dashboard.
+            dashboard.draw(data);
+      }
+    </script>
+ 
+<!-- ===== END JAVASCRIPT ===== -->
+</head>
+<body>
+<!-- ===== START HEADER ===== -->
+<div id="header">
+  <div class="container">
+    <div class="row">
+      <div class="span2">
+        <div class="logo"><img src="images/logo.png" alt="belle logo"/></div>
+      </div>
+      <div class="span10">
+        <ul class="menu">
+          <li><a href="#">StudentViz 1.0</a></li>
+          </ul>
+        <!-- ===== START DROP HIDDEN MENU ===== -->
+         <!--<div class="drop_menu">
+          <div class="btn-group"> <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> Menu <span class="caret"></span> </a>
+             <li><a href="index.html">Home</a></li>
+             </div>
+        </div> -->      
+        <!-- ===== END MENU ===== --> 
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== END HEADER ===== --> 
+
+<!-- ===== START PATH ===== -->
+<div id="path">
+  <div class="container">
+  <div class="display1">
+  <ul class="dis">
+          <li><a href="motionchart.html">Motion Chart</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+         </div>
+    <h3>StudentViz 1.0</h3>
+    <span><a class="active" href="dashboard.html">Dashboard</a></span> </div>
+</div>
+<!-- ===== END PATH ===== -->
+
+<!--VISUALIZATION CONTAINER --->
+
+<div id="viz">
+<div class="container">
+<div><h4> Dashboard: Pie chart visualization with Slider and Menu Selection as Filters</h4>
+
+</div>
+
+<div id="dashboard_div">
+      <!--Divs that will hold each control and chart-->
+      <div id="filter_div"></div>
+    
+      <div id="menu_div"></div>
+    
+      <div id="chart_div"></div>
+
+</div>
+</div>
+</div>
+
+<!--VISUALIZATION CONTAINER --->
+
+</body>
+</html>
