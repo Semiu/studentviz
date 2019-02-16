@@ -43,8 +43,8 @@
       // passes in the data and draws it.
         function drawDashboard() {
           //Fetch Our Table 
-          var queryString = encodeURIComponent('SELECT A1:D1219');
-          var query = new google.visualization.Query("https://docs.google.com/spreadsheets/d/1IyBFNaDr__c_YDNx2eudSI-s9M2wdW4R9upLbgFjTXQ/edit#gid=0&headers=4&tq" +queryString);
+          var queryString = encodeURIComponent("F3:H22");
+          var query = new google.visualization.Query("https://docs.google.com/spreadsheets/d/12Tpw59hyS84ymiMnC43yqhcfq7Qf2SSGFX9wxi5_ko8/edit#gid=0&headers=1&tq" +queryString);
           query.send(handleQueryResponse);
           }
         function handleQueryResponse(response){
@@ -70,21 +70,24 @@
             var data = response.getDataTable();
             var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard_div'));
 
-        // Create a range slider, passing some options
+        /** Create a range slider, passing some options
             var collegeNameSlider = new google.visualization.ControlWrapper({
                 'controlType': 'NumberRangeFilter',
                 'containerId': 'filter_div',
                 'options': {
-                    'filterColumnLabel': 'YEAR OF ADMISSION'
+                    'filterColumnLabel': 'YEAR OF GRADUATION'
                 }
             });
+            
+        */
+            
         // Create a Drop down Menu for Category Filter, passing some options
             var menuFilter = new google.visualization.ControlWrapper({
                 'controlType': 'CategoryFilter',
                 'containerId': 'menu_div',
                 'options': {
-                    'filterColumnLabel': 'DEPARTMENT',
-                    'values': ['Computer science', 'Accounting and taxation', 'Mathematics', 'Languages', 'Law', 'Mangement and administration', 'Political science and civics', 'Finance, banking, insurance', 'Statistics', 'Economics', 'Social work and counseling', 'Training for teachers with subject specialization', 'Travel, tourism and leisure', 'Psychology', 'National language', 'Religion', 'Social work and counseling'],
+                    'filterColumnLabel': 'COLLEGE',
+                    'values': ['Business', 'Science', 'Humanities', 'Education', 'Law']
                 }
             });
 
@@ -96,8 +99,8 @@
                     'width': 300,
                     'height': 300,
                     'pieSliceText': 'value',
-                    'legend': 'right'},
-                'view': {'columns': [0, 5]}
+                    'legend': 'right'}
+                //'view': {'columns': [0, 1, 2]}
                 
 
             });
@@ -106,7 +109,7 @@
         // so that the pie chart will only display entries that are let through
         // given the chosen slider range.
             
-            dashboard.bind(collegeNameSlider, menuFilter, pieChart);
+            dashboard.bind(menuFilter, pieChart);
 
         // Draw the dashboard.
             dashboard.draw(data);
