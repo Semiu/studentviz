@@ -26,76 +26,11 @@
 <script type="text/javascript" src="javascripts/bootstrap.js"></script>
 <script type="text/javascript" src="javascripts/jquery.prettyPhoto.js"></script>
 <script type="text/javascript" src="javascripts/options.js"></script>
-<script type="text/javascript" src="d3/d3.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <!--Load the AJAX API-->
     
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-
-      // Load the Visualization API and the controls package.
-google.charts.load('current', {packages:["motionchart"]});
-    
-    //Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(drawChart);
-    /**
-        function drawChart() {
-          //Fetch Our Table 
-          var queryString = encodeURIComponent('SELECT A1:D1219');
-          var query = new google.visualization.Query("https://docs.google.com/spreadsheets/d/1IyBFNaDr__c_YDNx2eudSI-s9M2wdW4R9upLbgFjTXQ/edit#gid=0&headers=1&tq" +queryString);
-          query.send(handleQueryResponse);
-          }
-        function handleQueryResponse(response){
-            if (response.isError()){
-                alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-                return; 
-            }
-        
-        // Create a Motion Chart.
-            var data = response.getDataTable();
-            var visualization = new google.visualization.MotionChart(document.getElementById('motionchart'));
-
-        // Initialises the option -where applicable
-            var option = {};
-            opptions pieChart = new google.visualization.ChartWrapper({
-            options['state'] = '{"iconKeySettings":[],"stateVersion":3,"time":"notime","xAxisOption":"_NOTHING","playDuration":15,"iconType":"BUBBLE","sizeOption":"_NOTHING","xZoomedDataMin":null,"xZoomedIn":false,"duration":{"multiplier":1,"timeUnit":"none"},"yZoomedDataMin":null,"xLambda":1,"colorOption":"_NOTHING","nonSelectedAlpha":0.4,"dimensions":{"iconDimensions":[]},"yZoomedIn":false,"yAxisOption":"_NOTHING","yLambda":1,"yZoomedDataMax":null,"showTrails":true,"xZoomedDataMax":null};';
-
-            options['width'] = 600;
-            options['height'] = 400;
-            chart.draw(data, options);
-
-        // Establish dependencies, declaring that 'filter' drives 'pieChart',
-        // so that the pie chart will only display entries that are let through
-        // given the chosen slider range.
-            
-            dashboard.bind(collegeNameSlider, menuFilter, pieChart);
-
-        // Draw the motion chart
-            chart.draw(data);
-      }
-*/
-    
-    function drawChart() {
-        
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Courses');
-        data.addColumn('date', 'Year of Admission');
-        data.addColumn('number', 'Population');
-        data.addColumn('number', 'Number graduated');
-        data.addColumn('string', 'Department');
-        data.addRows([
-          ['Economics',  new Date (1988,0,1), 1000, 300, 'Social Science'],
-          ['Medicine', new Date (1988,0,1), 1150, 200, 'Health Science'],
-          ['Microbiology', new Date (1988,0,1), 300,  250, 'Biological Science'],
-          ['Law',  new Date (1989,6,1), 1200, 400, 'Humanities'],
-          ['Criminology', new Date (1989,6,1), 750,  150, 'Humanities'],
-          ['Food Science', new Date (1989,6,1), 788,  617, 'Biological Science']
-        ]);
-
-        var chart = new google.visualization.MotionChart(document.getElementById('motionchart'));
-
-        chart.draw(data, {width: 600, height:300});
-      }
 
  </script>
  
@@ -131,7 +66,7 @@ google.charts.setOnLoadCallback(drawChart);
           <li><a href="dashboard.html">Dashboard</a></li>
           </ul>
          </div>
-    <h3>StudentViz 1.0</h3>
+    <h3>StudentViz</h3>
     <span><a class="active" href="motionchart.html">Motion Chart</a></span> </div>
 </div>
 <!-- ===== END PATH ===== -->
