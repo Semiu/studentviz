@@ -2,8 +2,9 @@
   "name": "studentviz",
   "version": "1.0.0",
   "description": "This is an ongoing project expected to feature:\r - loading csv data files into the system, \r - data entry and input through form submission, \r - multi-user authorization dependent environment, and \r - comprehensive  implementation of the conceptual design framework proposed in [**Akanmu Semiu A.** & Zulikha, J. (2017). *A Framework for Designing Information Visualization for Higher Education Institutions’ Students’ Data*, The Landscape of Computing & Informatics Research Zulikha, J. &. Zakaria, N. H, & Mazni, O. (Eds.)), *The Landscape of Computing & Informatics Research (2016 – 2017*)](https://scholar.google.com/citations?user=ROaTHt0AAAAJ&hl=en).",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,10 @@
   },
   "homepage": "https://github.com/Semiu/studentviz#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "hbs": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

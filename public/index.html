@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html lang ="en">
+<head>
+<meta charset="utf-8">
+<title>StudentViz</title>
+<link rel="shortcut icon" href="images/favicon_belle.ico" type="image/x-icon" />
+<meta name="description" content="StudentViz – A Multidimensional Visualization Tool for Students' Data">
+<meta name="keywords" content="student, visualization, decision, data, multidimensional">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- ===== START CSS ===== -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css"/>
+<link href="css/parallax.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- NO SCRIPT CSS -->
+
+<noscript>
+<link rel="stylesheet" type="text/css" href="css/nojs.css" />
+</noscript>
+<!-- ===== START JAVASCRIPT <meta name="viewport" content="width=device-width, initial-scale=1.0"> ===== -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="javascripts/modernizr.custom.28468.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="javascripts/jquery.cslider.js"></script>
+<script type="text/javascript" src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/minified/jquery-ui.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery.cookie.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.js"></script>
+<script type="text/javascript" src="javascripts/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="javascripts/options.js"></script>
+<!--Load the AJAX API-->
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- ===== END JAVASCRIPT ===== -->
+
+</head>
+
+<body>
+<!-- ===== START HEADER ===== -->
+<div id="header">
+    <div class="container">
+    <div class="row">
+      <div class="span2">
+         <div class="logo"><img src="images/logo.png" alt="belle logo"/></div>
+      </div>
+      </div>
+    </div>
+ 
+</div>
+<!-- ===== END HEADER ===== --> 
+
+<!-- ===== START PATH ===== -->
+<div id="path">
+<div class="container" id="navbar">
+
+<div id="home">
+    <h3>StudentViz</h3>
+    <span><a class="active" href="index.html">Home</a></span>
+</div>
+
+    <div id="logindiv">
+        <form>
+        <div class="row">
+        <ul class="dsi">
+            Username: <input type="text" placeholder="Enter Username" name="username" style="font-size:12pt;height:40px;width:160px;" required> Password: <input type="password" placeholder="Enter Password" name="password" style="font-size:15pt;height:40px;width:160px;" required> <input class="btn btn-primary" type="submit" value="Login" style="font-size:15pt;height:40px;width:100px;">
+            <input class="btn btn-danger" type="reset" value="Reset" style="font-size:15pt;height:40px;width:100px;">
+            
+        </ul>
+    </div>
+        </form>
+    </div>
+
+</div>
+</div>
+<!-- ===== END PATH ===== -->
+<div class="container">
+
+<div id="core">
+
+<!--Slider---->
+<div id="slide">
+
+    <h2>This is for slide</h2>
+
+</div>
+
+<!--Registration form --->
+<div id="register">
+    <h3>Register here</h3>
+    <form action="">
+        <div class="col-md-6">
+        <div class="row"> 
+            <label for="fname">First Name: </label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name.." style="font-size:12pt;height:40px;width:160px;">
+        </div>
+
+        <div class="row">
+            <label for="lname">Last Name: </label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.." style="font-size:12pt;height:40px;width:160px;">
+        </div>
+
+        <div class="row">
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" placeholder="Your email.." style="font-size:12pt;height:40px;width:160px;" required>
+        </div>
+
+        <div class="row">
+            <label for="password1">Password: </label>
+            <input type="password" id="password1" name="password1" placeholder="Your password.." style="font-size:12pt;height:40px;width:160px;" required>
+        </div>
+
+        <div class="row">
+            <label for="lname">Re-enter Password: </label>
+            <input type="password" id="password2" name="password2" placeholder="Your password.." style="font-size:12pt;height:40px;width:160px;" required>
+        </div>
+
+        <div class="row">
+            <input class="btn btn-danger" type="reset" value="Reset" style="font-size:15pt;height:40px;width:100px;">
+            <input class="btn btn-primary" type="submit" value="Submit" style="font-size:15pt;height:40px;width:100px;">
+        </div>
+
+        </div>
+
+      </form>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<div id="footer">
+
+    <div class="container">
+    <div class="row">
+      <div class="span2">
+         <div class="logo"><img src="images/logo.png" alt="belle logo"/></div>
+      </div>
+      <div class="span2">
+      <p>Semiu Akanmu <br>
+        <a href="mailto:ayobami.sm@gmail.com">ayobami.sm@gmail.com</a></p>
+      </div>
+    </div>
+    </div>
+ 
+</div>
+
+
+
+
+
+<script type="text/javascript" src="javascripts/index.js"></script>
+</body>
+</html>

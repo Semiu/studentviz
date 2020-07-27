@@ -1,8 +1,17 @@
-//Load the Express package
+// Load the Path module
+const path = require('path');
+
+//Load the Express module
 const express = require('express');
 
-//Initialize the app from the express package
+//Initialize the app from the express module
 const app = express();
+
+//Load the public directory containing css, images and front-end JS
+const publicAsset = path.join(__dirname, 'public');
+
+app.use(express.static(publicAsset));
+
 
 //Assigning the port number
 const port = process.env.PORT || 3000;
