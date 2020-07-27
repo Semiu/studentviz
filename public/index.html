@@ -1,25 +1,29 @@
 <!DOCTYPE HTML>
-<html>
+<html lang ="en">
 <head>
 <meta charset="utf-8">
 <title>StudentViz</title>
 <link rel="shortcut icon" href="images/favicon_belle.ico" type="image/x-icon" />
 <meta name="description" content="StudentViz – A Multidimensional Visualization Tool for Students' Data">
 <meta name="keywords" content="student, visualization, decision, data, multidimensional">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <!-- ===== START CSS ===== -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
 <link href="css/style.css" rel="stylesheet" type="text/css"/>
 <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css"/>
 <link href="css/parallax.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <!-- NO SCRIPT CSS -->
 
 <noscript>
 <link rel="stylesheet" type="text/css" href="css/nojs.css" />
 </noscript>
-<!-- ===== START JAVASCRIPT ===== -->
-
+<!-- ===== START JAVASCRIPT <meta name="viewport" content="width=device-width, initial-scale=1.0"> ===== -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript" src="javascripts/modernizr.custom.28468.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="javascripts/jquery.cslider.js"></script>
@@ -37,59 +41,64 @@
 
 <body>
 <!-- ===== START HEADER ===== -->
-
 <div id="header">
-  <div class="container">
+    <div class="container">
     <div class="row">
       <div class="span2">
          <div class="logo"><img src="images/logo.png" alt="belle logo"/></div>
       </div>
-      <div class="span10">
-        <ul class="menu">
-          <li><a href="#">StudentViz</a></li>
-          </ul>
-        <!-- ===== START DROP HIDDEN MENU ===== -->
-            
-        <!-- ===== END MENU ===== --> 
-  
       </div>
     </div>
-  </div>
+ 
 </div>
 <!-- ===== END HEADER ===== --> 
 
 <!-- ===== START PATH ===== -->
-
 <div id="path">
-  <div class="container">
-  <div class="display1">
-  <ul class="dis">
-          <li><a href="motionchart.html">Motion Chart</a></li>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="index.html">Home</a></li>
-          </ul>
-         </div>
+<div class="container" id="navbar">
+
+<div id="home">
     <h3>StudentViz</h3>
-    <span><a class="active" href="index.html">Home</a></span> </div>
+    <span><a class="active" href="index.html">Home</a></span>
+</div>
+
+    <div id="logindiv">
+        <form>
+        <ul class="dsi">
+            Username: <input type="text" placeholder="Enter Username" name="username" required> Password: <input type="password" placeholder="Enter Password" name="password" required> <input class="btn btn-primary" type="submit" value="Submit">
+            <input class="btn btn-primary" type="reset" value="Reset">
+            
+        </ul>
+        </form>
+    </div>
+
+</div>
 </div>
 <!-- ===== END PATH ===== -->
+<div id="core">
+<!--Slider---->
+<div id="slide">
 
-<!--VISUALIZATION CONTAINER --->
 
-<div id="viz">
-<div class="container">
+    <h2>This is for slide</h2>
 
-<div><h4> </h4>
+</div>
+<!--Registration form --->
+<div id="register">
+    <h2>This is for registration</h2>
+</div>
 
 </div>
 
-<div id="dashboard_div">
-      
-</div>
-
-</div>
-</div>
-<!--VISUALIZATION CONTAINER --->
-
+<script type="text/javascript" src="javascripts/index.js"></script>
 </body>
+<!--
+<footer>
+    <p>Collaborators</p>
+    <p>Semiu Akanmu <br>
+    <a href="mailto:ayobami.sm@gmail.com">ayobami.sm@gmail.com</a></p>
+    <p>Joseph Olawale <br>
+        <a href="mailto:joseph28@gmail.com">joseph28@gmail.com</a></p>
+</footer>
+--->
 </html>

@@ -43,6 +43,29 @@ p {
 	font-family: 'Open Sans', sans-serif;
 }
 /* ===================================================== START HEADER ELEMENTS CSS ===================================================== */
+#navbar{
+ 
+    overflow:auto;
+}
+#home{
+   float:left;
+}
+#logindiv{
+    float:right;
+}
+
+#core{
+    overflow:auto;
+}
+#slide{
+   float:left;
+   background-color:cyan;
+}
+#register{
+	float:right;
+	background-color: darkgoldenrod;
+}
+
 
 /* ================== HEADER CSS ================== */
 #header {
