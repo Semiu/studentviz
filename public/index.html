@@ -64,41 +64,97 @@
 
     <div id="logindiv">
         <form>
+        <div class="row">
         <ul class="dsi">
-            Username: <input type="text" placeholder="Enter Username" name="username" required> Password: <input type="password" placeholder="Enter Password" name="password" required> <input class="btn btn-primary" type="submit" value="Submit">
-            <input class="btn btn-primary" type="reset" value="Reset">
+            Username: <input type="text" placeholder="Enter Username" name="username" style="font-size:12pt;height:40px;width:160px;" required> Password: <input type="password" placeholder="Enter Password" name="password" style="font-size:15pt;height:40px;width:160px;" required> <input class="btn btn-primary" type="submit" value="Login" style="font-size:15pt;height:40px;width:100px;">
+            <input class="btn btn-danger" type="reset" value="Reset" style="font-size:15pt;height:40px;width:100px;">
             
         </ul>
+    </div>
         </form>
     </div>
 
 </div>
 </div>
 <!-- ===== END PATH ===== -->
+<div class="container">
+
 <div id="core">
+
 <!--Slider---->
 <div id="slide">
-
 
     <h2>This is for slide</h2>
 
 </div>
+
 <!--Registration form --->
 <div id="register">
-    <h2>This is for registration</h2>
+    <h3>Register here</h3>
+    <form action="">
+        <div class="col-md-6">
+        <div class="row"> 
+            <label for="fname">First Name: </label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name.." style="font-size:12pt;height:40px;width:160px;">
+        </div>
+
+        <div class="row">
+            <label for="lname">Last Name: </label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.." style="font-size:12pt;height:40px;width:160px;">
+        </div>
+
+        <div class="row">
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" placeholder="Your email.." style="font-size:12pt;height:40px;width:160px;" required>
+        </div>
+
+        <div class="row">
+            <label for="password1">Password: </label>
+            <input type="password" id="password1" name="password1" placeholder="Your password.." style="font-size:12pt;height:40px;width:160px;" required>
+        </div>
+
+        <div class="row">
+            <label for="lname">Re-enter Password: </label>
+            <input type="password" id="password2" name="password2" placeholder="Your password.." style="font-size:12pt;height:40px;width:160px;" required>
+        </div>
+
+        <div class="row">
+            <input class="btn btn-danger" type="reset" value="Reset" style="font-size:15pt;height:40px;width:100px;">
+            <input class="btn btn-primary" type="submit" value="Submit" style="font-size:15pt;height:40px;width:100px;">
+        </div>
+
+        </div>
+
+      </form>
 </div>
 
 </div>
+
+</div>
+
+
+
+
+<div id="footer">
+
+    <div class="container">
+    <div class="row">
+      <div class="span2">
+         <div class="logo"><img src="images/logo.png" alt="belle logo"/></div>
+      </div>
+      <div class="span2">
+      <p>Semiu Akanmu <br>
+        <a href="mailto:ayobami.sm@gmail.com">ayobami.sm@gmail.com</a></p>
+      </div>
+    </div>
+    </div>
+ 
+</div>
+
+
+
+
 
 <script type="text/javascript" src="javascripts/index.js"></script>
 </body>
-<!--
-<footer>
-    <p>Collaborators</p>
-    <p>Semiu Akanmu <br>
-    <a href="mailto:ayobami.sm@gmail.com">ayobami.sm@gmail.com</a></p>
-    <p>Joseph Olawale <br>
-        <a href="mailto:joseph28@gmail.com">joseph28@gmail.com</a></p>
-</footer>
---->
 </html>

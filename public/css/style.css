@@ -53,17 +53,27 @@ p {
 #logindiv{
     float:right;
 }
-
+.myinput{
+	font-size:50pt;
+	height:150px;
+	width:150px;
+}
 #core{
     overflow:auto;
 }
 #slide{
    float:left;
+   margin-left: 20px;
    background-color:cyan;
 }
 #register{
 	float:right;
-	background-color: darkgoldenrod;
+	width: 50%;
+	background-color:grey;
+	margin-right: 20px;
+}
+label{
+	font-size: 20px;
 }
 
 
