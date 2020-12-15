@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Data Visualisations</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='plugins/d3/d3.js'></script>
+
+    <style>
+        .container {
+            width: 250px;
+            height: 200px;
+            display: flex;
+            justify-content: space-around
+        }
+
+        .bar {
+            background-color: #720570;
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+
+
+
+    <script>
+
+        const DATA = [
+            {id: 'd1', value: 20, region: 'USA'},
+            {id: 'd2', value: 40, region: 'NIGERIA'},
+            {id: 'd3', value: 5, region: 'GERMANY'},
+            {id: 'd4', value: 25, region: 'CHINA'}
+        ];
+
+        const container = d3.select('div')
+            .classed('container', true)
+            .style('border', '1px solid red');
+
+        container
+            .selectAll('.bar')
+            .data(DATA)
+            .enter()
+            .append('div')
+            .classed('bar', true)
+            .style('height', data => (data.value * 15) + 'px')
+            .style('width', '50px')
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Data Visualisations</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+
+    <style>
+        .container {
+            width: 250px;
+            height: 200px;
+            border: 1px solid #720570
+        }
+
+        .bar {
+            fill: #720570;
+        }
+
+        .bar:hover {
+            fill: #a063b3;
+            cursor: pointer
+        }
+    </style>
+</head>
+<body>
+
+    <h1>World Economic Report</h1>
+
+    <svg></svg>
+
+
+
+    <script src='plugins/d3/d3.js'></script>
+    <script src = "plugins/d3/d3-scale.js" defer></script>
+
+    <script defer>
+
+        const DATA = [
+            {id: 'd1', value: 20, region: 'USA'},
+            {id: 'd2', value: 40, region: 'NIGERIA'},
+            {id: 'd3', value: 5, region: 'GERMANY'},
+            {id: 'd4', value: 25, region: 'CHINA'}
+        ];
+
+        const xScale = d3.scaleBand()
+            .domain(DATA.map((dataPoint) => dataPoint.region))
+            .rangeRound([0, 250])
+            .padding(0.1);
+
+        const yScale = d3.scaleLinear().domain([0, 45]).range([200, 0]);
+
+        const container = d3.select('svg')
+            .classed('container', true)
+            .attr("transform", "translate(30, 10)")
+
+        container
+            .selectAll('.bar')
+            .data(DATA)
+            .enter()
+            .append('rect')
+            .classed('bar', true)
+            .attr('height', (data) => yScale(data.value))
+            .attr('width', xScale.bandwidth())
+            .attr('x', data => xScale(data.region))
+            .attr('y', data => 200 - yScale(data.value));
+
+
+        // Add scales to axis
+        var x_axis = d3.axisRight()
+            .scale(yScale);
+
+        // Add scales to axis
+        var y_axis = d3.axisBottom()
+            .scale(yScale);
+
+        //Append group and insert axis
+        container.append("g")
+            .attr("transform", "translate(-10, 10)")
+            .call(x_axis);
+
+        container.append("g")
+        .call(y_axis)
+
+    </script>
+    
+</body>
+</html>

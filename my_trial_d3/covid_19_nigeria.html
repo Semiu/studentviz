@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Data Visualisations</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" type = "text/css" href = "plugins/bootstrap/css/bootstrap.min.css">
+    
+    <style>
+        
+
+        .bar {
+            fill: #720570;
+        }
+
+        .bar:hover {
+            fill: #a063b3;
+            cursor: pointer
+        }
+    </style>
+</head>
+<body class= "bg-dark">
+
+    <header class = "bg-light p-4">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">DataManager</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto mr-lg-5">
+                <li class="float-right nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+    </header>
+
+
+    <section class = "mt-5 h-100" style = "height: 100%">
+
+        <div class = "container bg-white rounded p-5 h-100">
+
+            <div class="row">
+                <div class="col-3">
+                  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">By States <span style = "margin-top: 3px" class = "badge float-right badge-success">5</span></a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Covid Report <span style = "margin-top: 3px" class = "badge float-right badge-warning">New</span></a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Announcements</a>
+                  </div>
+                </div>
+                <div class="col-9">
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane p-3 fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <svg width = "100%" height = "100%" id ="bar_chart"></svg>
+
+                        
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        <svg class = "">
+                            <text x=0 y= 15 fill = "red">I love you!</text>
+                        </svg>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+    </section>
+
+    <script src = "plugins/jquery.min.js"></script>
+    <script src = "plugins/bootstrap/js/bootstrap.js"></script>
+    <script src = "plugins/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <script src='plugins/d3/d3.js'></script>
+    <script src = "plugins/d3/d3-scale.js" defer></script>
+
+    <script src = "data/covid_19_case_by_states.js"></script>
+
+    <script>
+
+        const DATA = data_case_by_state;
+
+        const DATA_ARRAY = [];
+
+        for (i = 0; i < DATA.length; i++)   {
+            DATA_ARRAY[i] = DATA[i].confirmed_cases;
+            
+        }
+
+        var bar_height = $("#bar_chart").css('height');
+        bar_height = bar_height.substring(0, bar_height.length - 2);
+
+        var bar_width = $("#bar_chart").css('width');
+        bar_width = bar_width.substring(0, bar_width.length - 2);
+
+        const xScale = d3.scaleBand()
+            .domain(DATA.map((dataPoint) => dataPoint.state))
+            .rangeRound([0, bar_width])
+            .padding(0.1);
+
+        const yScale = d3.scaleLinear().domain([0, d3.max(DATA_ARRAY) + 2000]).range([bar_height, 0]);
+
+        const container = d3.select('#bar_chart')
+            .style('border', '1px solid red');
+
+        container
+            .selectAll('.bar')
+            .data(DATA)
+            .enter()
+            .append('rect')
+            .classed('bar', true)
+            .attr('height', bar_height)
+            .attr('width', xScale.bandwidth())
+            .attr('x', data => xScale(data.state))
+            .attr('y', data => yScale(data.confirmed_cases));
+
+        const textLabels = container.selectAll('.text')
+            .data(DATA)
+            .enter()
+            .append('text')
+            .text(data => data.state + "(" + data.confirmed_cases.toLocaleString('en-US') + ")")
+            .attr('x', data => xScale(data.state))
+            .attr('y', data => yScale(data.confirmed_cases))
+
+
+        // Add scales to axis
+        var x_axis = d3.axisRight()
+            .scale(yScale);
+
+        // Add scales to axis
+        var y_axis = d3.axisBottom()
+            .scale(yScale);
+
+        //Append group and insert axis
+        container.append("g")
+            .attr("transform", "translate(-10, 10)")
+            .call(x_axis);
+
+    </script>
+    
+</body>
+</html>
